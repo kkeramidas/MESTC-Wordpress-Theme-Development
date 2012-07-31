@@ -1,0 +1,97 @@
+/*
+THEMATIC 2 Column Left sidebar customized for MESTC Theme
+
+LAYOUT: One-Column (Left) Fixed
+DESCRIPTION: Two-column 750px fixed layout with one sidebar left of content
+*/
+
+body {
+    min-width:750px;
+}
+#header {
+    position:relative;
+}
+#branding {
+    width:750px;
+    margin:0 auto;
+}
+#access {
+    position:relative;
+    overflow:hidden;
+}
+.menu {
+    width:750px;
+    margin:0 auto;
+}
+#main {
+    width:750px;
+    margin:0 auto;
+    overflow:hidden;
+    position:relative;
+}
+#container {
+    width:750px;
+    float:right;
+    margin: 0 0 0 -180px;
+}
+#content {
+    width:575px;
+    overflow:hidden;
+    margin: 0 0 0 180px;
+}
+.hentry {
+    width: auto;
+}
+.main-aside {
+    width:165px;
+    float:left;
+    position:relative;
+}
+#primary {
+    float:left;
+}
+#secondary {
+    clear:left;
+}
+#footer {    
+    clear:both;
+}
+#subsidiary {
+    width:750px;
+    margin:0 auto;
+    overflow:hidden;
+}
+#subsidiary .aside {
+    width:165px;
+    float:left;
+    margin:0 20px 0 0;
+}
+#subsidiary #third {
+    margin:0;
+}
+#siteinfo {
+    clear:both;
+    width:750px;
+    margin:0 auto;
+}
+
+/* =Page Templates
+-------------------------------------------------------------- */
+
+/*
+    Full Width Template
+*/
+
+.page-template-template-page-fullwidth-php #container {
+	margin:0;
+	width:750px;
+}
+
+.page-template-template-page-fullwidth-php #content {
+	margin: 0 0 0 10px;
+	width:750px;
+}
+
+.page-template-template-page-fullwidth-php #comments {
+    width:540px;
+}
