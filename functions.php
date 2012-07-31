@@ -592,11 +592,12 @@ function events_page_side_calendar () {
 		
 		$showmonth = false;
 		$monthcount = 1;
+		$event_id = $eventpost->ID;
 		
-		if (tribe_event_in_category('us-theatre', $eventpost->ID)) {
+		if (tribe_event_in_category('us-theatre', $event_id)) {
 			$eventcat = 'us-theatre';
 		}
-		elseif (tribe_event_in_category('international-theatre', $eventpost->ID))  {
+		elseif (tribe_event_in_category('international-theatre', $event_id))  {
 			$eventcat = 'international-theatre';
 		}
 		elseif (tribe_event_in_category('publication-theatre', $eventpost->ID)) {
@@ -650,7 +651,6 @@ function events_page_side_calendar () {
 			if ($eventmonth != $month){
 				$month = $eventmonth;
 				$showmonth = true;
-
 			} //end if
 		
 			if ($showmonth == true){
@@ -699,79 +699,55 @@ function events_page_side_calendar () {
 add_action('thematic_belowmainasides', 'events_page_side_calendar', 1);
 
 		
-function exclude_events_category( $query ) {
-
-if ( is_single('your-single-post') ) {
-
-$query->set( 'tax_query', array(
-
-array(
-
-'taxonomy' => TribeEvents::TAXONOMY,
-
-'field' => 'slug',
-
-'terms' => array('2012'),
-
-'operator' => 'IN'
-
-)
-
-)
-
-);
-
-}
-
-return $query;
-
-}		
 
 function category_side_calendar() {
+	global $post;
 	if (tribe_is_event($post->ID)){
-		echo 'BACON';
-	    	if (tribe_event_in_category('us-theatre')) {
+		   	if (in_category('cat_us-theatre')) {
 				$categorycal = 'us-theatre';
 				$categorynicecal = 'US Theatre';
 			}
-			elseif (tribe_event_in_category('international-theatre'))  {
+			elseif (in_category('cat_international-theatre'))  {
 				$categorycal = 'international-theatre';
 				$categorynicecal = 'International Theatre';
 			}
-			elseif (tribe_event_in_category('publication-theatre'))  {
+			elseif (in_category('cat_publication-theatre'))  {
 				$categorycal = 'publication-theatre';
 				$categorynicecal = 'Publications';
 			}
-			elseif (tribe_event_in_category('conferences')) {
+			elseif (in_category('cat_conferences')) {
 				$categorycal = 'conferences';
 				$categorynicecal = 'Conferences';
 			}
-			elseif (tribe_event_in_category('screenings')) {
+			elseif (in_category('cat_screenings')) {
 				$categorycal = 'screenings';
 				$categorynicecal = 'Screenings';
 			}//endif
 			
 		$get_eventposts = tribe_get_events(
-			array(
-	            'tax_query'=> array(
-	                array(
-						'taxonomy' => 'tribe_events_cat',
-						'field' => 'slug',
-						'terms' => $categorycal
-	            			)
-	    		)
-	)    
-	);
+				array(
+					'eventDisplay'=>'all',
+		            'tax_query'=> array(
+		                array(
+							'taxonomy' => 'tribe_events_cat',
+							'field' => 'slug',
+							'terms' => $categorycal			
+		            			)
+		    		)
+		)    
+		);
+			
 	    $key = 'short-title'; ?>
 			<div id="category-side-cal">
 			<h1 class="events-sidecal-header"><?php echo $categorynicecal ?> Calendar</h1>
 			<dl class="events-sidecal"><?php
 
 			foreach($get_eventposts as $eventpost) { 
-				setup_postdata($eventpost); ?>
-		        <dt class="event-short-date"><?php echo tribe_get_start_date( $eventpost->ID, false, 'M j' );?></dt>
-		        <dd class="event-short-title"><a href="<?php echo get_permalink($eventpost->ID); ?>" id="post-<?php echo the_ID(); ?>"><?php echo get_post_meta($eventpost->ID, $key, true); ?></a><?php echo tribe_get_event_meta($eventpost->ID, tribe_events_cat, true); ?></dd>
-		<?php } //endforeach ?>
+					?>
+			        <dt class="event-short-date"><?php echo tribe_get_start_date( $eventpost->ID, false, 'M j' );?></dt>
+			        <dd class="event-short-title"><a href="<?php echo get_permalink($eventpost->ID); ?>" id="post-<?php echo the_ID(); ?>"><?php echo get_post_meta($eventpost->ID, $key, true); ?></a></dd>
+		<?php
+		} //endforeach ?>
 
 		    </dl>
 		    </div>
