@@ -1104,7 +1104,7 @@ body.pageid-21 #secondary{
   display:none;
 }
 
-#events-at-a-glance{
+#events-at-a-glance, #category-side-cal{
   clear:left;
   color: #6CB2D4;
 }
@@ -1136,7 +1136,7 @@ h2.events-sidecal-month{
   padding: 0px 0 3px;
 }
 
-dl.events-sidecal-event{
+dl.events-sidecal, dl.events-sidecal-event{
   margin:0;
   padding:0;
 }
@@ -1174,6 +1174,12 @@ dl.events-sidecal-event{
 	text-decoration:none;
 	border:none;
 	}
+
+#category-side-cal h1.events-sidecal-header {
+    padding-bottom:5px;
+}
+
+
 
 /* =Index Styles
 -------------------------------------------------------------- */
