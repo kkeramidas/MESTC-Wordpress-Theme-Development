@@ -662,13 +662,13 @@ table.tribe-events-calendar .cat_screenings a:active,
 }
 
 #tribe-events-event-meta dd.event-meta {
-    padding:0;
+    padding:1px 0 0 0;
     margin-left: 35px;
     margin-bottom: 10px;
 }
 
 #tribe-events-event-meta dl.venue-cost-column dd.event-meta {
-    padding:0;
+    padding:1px 0 0 0;
     margin-left: 43px;
     margin-bottom: 10px;
 }
@@ -678,7 +678,7 @@ table.tribe-events-calendar .cat_screenings a:active,
 } 
 
 #tribe-events-event-meta dd.category-meta {
-    padding:0;
+    padding:1px 0 0 0;
     margin-left:62px;
     margin-bottom: 10px;
 }
@@ -706,7 +706,7 @@ table.tribe-events-calendar .cat_screenings a:active,
 
 .tribe-events-events .tribe-events-event-entry {
     width:508px;
-    margin-right:10px;
+    margin-right:8px;
     padding:0;
 }
 
@@ -719,7 +719,7 @@ table.tribe-events-calendar .cat_screenings a:active,
 
 .tribe-events-events .tribe-events-event-list-meta{
     width:221px;
-    padding:0 0 0 10px;
+    padding:0 0 0 8px;
 }
 
 .tribe-events-events .tribe-events-event-list-meta table{
@@ -727,7 +727,7 @@ table.tribe-events-calendar .cat_screenings a:active,
 }
 
 .tribe-events-events .tribe-events-event-meta-desc {
-    width:48px;
+    width:66px;
 }
 
 h2.entry-title{
@@ -786,13 +786,12 @@ h2.tribe-events-cal-title, h2.tribe-events-cal-title a {
     font-weight:normal;
 }
 
-#tribe-events-loop .category-label
+/*#tribe-events-loop .category-label
 , #tribe-events-loop .category-meta{
-    visibility:hidden;
     height:0px;
     padding:0px;
     margin:0px;
-}
+}*/
 
 .tribe-events-calendar .tribe-events-tooltip{
     background-color: #ffffff;

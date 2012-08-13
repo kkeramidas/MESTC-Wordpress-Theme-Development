@@ -30,8 +30,10 @@ global $post;
 
 //Add Favicon
 
-function childtheme_favicon() { ?>
-    <link rel="shortcut icon" href="http://php.dev/MESTCDev/wp-content/themes/mestc/library/images/favicon.ico">
+function childtheme_favicon() { 
+	$MESTCimagedir = get_stylesheet_directory_uri();
+	$MESTCimagedir .= '/library/images/';?>
+    <link rel="shortcut icon" href="<?php echo $MESTCimagedir ?>favicon.ico">
 <?php }
 
 add_action('wp_head', 'childtheme_favicon');
@@ -43,7 +45,7 @@ add_action('wp_head', 'childtheme_favicon');
 function childtheme_override_blogtitle(){
 		$MESTCimagedir = get_stylesheet_directory_uri();
 		$MESTCimagedir .= '/library/images/';
-		if (is_page('4')){
+		if (is_page('index')){
 		?>
 	  	<div id="MESTC-image"><span><a href="<?php echo home_url() ?>/" title="Martin E. Segal Theatre Center" rel="home"><img
 src="<?php echo $MESTCimagedir ?>MESTCBIG.png" height="175px" width="225px"></a></span></div><?php		
@@ -108,7 +110,7 @@ add_action('thematic_header','top_menu');
 function childtheme_override_access(){ 
 	$MESTCimagedir = get_stylesheet_directory_uri();
 	$MESTCimagedir .= '/library/images/';
-	if (is_page('4')) { ?>
+	if (is_page('index')) { ?>
 	<div id="access"> <?php
     } 	
     else { 
@@ -129,7 +131,7 @@ function childtheme_override_access(){
     	} else {
     	    echo  thematic_add_menuclass(wp_page_menu(thematic_page_menu_args()));	
     	}
-    if (!is_page('4')){
+    if (!is_page('index')){
 		secondary_header_menu();}?>
     </div><!-- #access -->
     <?php 
@@ -160,7 +162,7 @@ register_post_type('tribe_events',array( // Registers Events Calendar Custom Pos
 // Randomizes background of Index page and adds caption and photo credits
 
 function randomize_index_background () {
-	if (is_page('4')){
+	if (is_page('index')){
 	$background_images[0] = 'MESTCBG1.png';
 	$background_images[1] = 'MESTCBG2.png';
 	$background_images[2] = 'MESTCBG3.png';
@@ -216,7 +218,7 @@ add_action ('thematic_before', 'randomize_index_background', 1);
 	
 	
 	
-// add category nicenames in body and post class
+// Add category nicenames in body and post class
 
 /**
  * Generates semantic classes for BODY element
@@ -499,7 +501,7 @@ function childtheme_override_body_class( $print = true ) {
 // Add Events List and Calendar Button to Events Page
 
 function add_calendar_buttons() {
-	if (is_page('21')){
+	if (is_page('events')){
 		?><div id="tribe-events-calendar-header" class="clearfix">
 			<span class="tribe-events-calendar-buttons"><a class="tribe-events-button-off" href="http://php.dev/MESTCDev/events-list/upcoming/">Event List</a>
 			<a class="tribe-events-button-off" href="http://php.dev/MESTCDev/events-list/month/">Calendar</a>
@@ -548,7 +550,7 @@ function return_upcoming_category_event($upcomingcategory){
 function events_page_side_calendar () {
 	$key="short-title";
 
-	if (is_page('events')){
+	if (is_page('events') OR tribe_is_event($post->ID)){
 		$get_posts = tribe_get_events(
 	        array(
 	            'eventDisplay'=>'upcoming',
@@ -575,6 +577,23 @@ function events_page_side_calendar () {
 
 	foreach($get_posts as $eventpost) { 
 		setup_postdata($eventpost);
+		
+	   	if (has_term('us-theatre','tribe_events_cat',$eventpost)) {
+			$eventcal = 'us-theatre';
+		}
+		elseif (has_term('international-theatre','tribe_events_cat',$eventpost))  {
+			$eventcal = 'international-theatre';
+		}
+		elseif (has_term('publication-theatre','tribe_events_cat',$eventpost))  {
+			$eventcal = 'publication-theatre';
+		}
+		elseif (has_term('conferences','tribe_events_cat',$eventpost)) {
+			$eventcal = 'conferences';
+		}
+		elseif (has_term('screenings','tribe_events_cat',$eventpost)) {
+			$eventcal = 'screenings';
+		}//endif
+		
 		$eventmonth = tribe_get_start_date( $eventpost->ID, false, 'F' );
 		
 		if ($eventmonth != $month){
@@ -593,26 +612,10 @@ function events_page_side_calendar () {
 		$showmonth = false;
 		$monthcount = 1;
 		$event_id = $eventpost->ID;
-		
-		if (tribe_event_in_category('us-theatre', $event_id)) {
-			$eventcat = 'us-theatre';
-		}
-		elseif (tribe_event_in_category('international-theatre', $event_id))  {
-			$eventcat = 'international-theatre';
-		}
-		elseif (tribe_event_in_category('publication-theatre', $eventpost->ID)) {
-			$eventcat = 'publication-theatre';
-		}
-		elseif (tribe_event_in_category('conferences', $eventpost->ID)) {
-			$eventcat = 'conferences';
-		}
-		elseif (tribe_event_in_category('screenings', $eventpost->ID)) {
-			$eventcat = 'screenings';
-		} // endif
 		?>
 		
         <dt class="event-short-date"><?php echo tribe_get_start_date( $eventpost->ID, false, 'M j' );?></dt>
-        <dd class="event-short-title <?php echo $eventcat; ?>"><a href="<?php echo get_permalink($eventpost->ID); ?>" id="post-<?php echo $eventpost->ID ?>"><?php echo get_post_meta($eventpost->ID, $key, true); ?></a>
+        <dd class="event-short-title"><div class="<?php echo $eventcal;?>"><a href="<?php echo get_permalink($eventpost->ID); ?>" id="post-<?php echo $eventpost->ID ?>"><?php echo get_post_meta($eventpost->ID, $key, true); ?></a></div>
 		</dd>
 <?php } //endforeach ?>
 
@@ -646,8 +649,25 @@ function events_page_side_calendar () {
 
 		foreach($get_oldposts as $eventpost) { 
 			setup_postdata($eventpost); 
-			$eventmonth = tribe_get_start_date( $eventpost->ID, false, 'F' );
 
+		   	if (has_term('us-theatre','tribe_events_cat',$eventpost)) {
+				$eventcal = 'us-theatre';
+			}
+			elseif (has_term('international-theatre','tribe_events_cat',$eventpost))  {
+				$eventcal = 'international-theatre';
+			}
+			elseif (has_term('publication-theatre','tribe_events_cat',$eventpost))  {
+				$eventcal = 'publication-theatre';
+			}
+			elseif (has_term('conferences','tribe_events_cat',$eventpost)) {
+				$eventcal = 'conferences';
+			}
+			elseif (has_term('screenings','tribe_events_cat',$eventpost)) {
+				$eventcal = 'screenings';
+			}//endif
+			
+			$eventmonth = tribe_get_start_date( $eventpost->ID, false, 'F' );
+				
 			if ($eventmonth != $month){
 				$month = $eventmonth;
 				$showmonth = true;
@@ -661,26 +681,11 @@ function events_page_side_calendar () {
 			} // endif
 			
 			$showmonth = false;
-			
-			if (tribe_event_in_category('us-theatre', $eventpost->ID)) {
-				$eventcat = 'us-theatre';
-			}
-			elseif (tribe_event_in_category('international-theatre', $eventpost->ID))  {
-				$eventcat = 'international-theatre';
-			}
-			elseif (tribe_event_in_category('publication-theatre', $eventpost->ID))  {
-				$eventcat = 'publication-theatre';
-			}
-			elseif (tribe_event_in_category('conferences', $eventpost->ID)) {
-				$eventcat = 'conferences';
-			}
-			elseif (tribe_event_in_category('screenings', $eventpost->ID)) {
-				$eventcat = 'screenings';
-			} // endif
+			$eventclass = 'us-theatre';
 			?>
 			
 			<dt class="event-short-date"><?php echo tribe_get_start_date( $eventpost->ID, false, 'M j' );?></dt>
-	        <dd class="event-short-title <?php echo $eventcat; ?>"><a href="<?php echo get_permalink($eventpost->ID); ?>" id="post-<?php echo $eventpost->ID ?>"><?php echo get_post_meta($eventpost->ID, $key, true); ?></a>
+	        <dd class="event-short-title"><div class="<?php echo $eventcal;?>"><a href="<?php echo get_permalink($eventpost->ID); ?>" id="post-<?php echo $eventpost->ID ?>"><?php echo get_post_meta($eventpost->ID, $key, true); ?></a></div>
 			</dd>
 				<?php
 			
@@ -698,8 +703,30 @@ function events_page_side_calendar () {
 
 add_action('thematic_belowmainasides', 'events_page_side_calendar', 1);
 
-		
+/*	
+$postClass = get_post_class($eventpost->ID);
 
+foreach($postClass as $class){
+	echo $class;
+	if ($class == 'us-theatre'){
+		$eventclass='us-theatre';
+	}
+	elseif ($class == 'international-theatre'){
+		$eventclass='international-theatre';
+	}
+	elseif ($class == 'publication-theatre'){
+		$eventclass='publication-theatre';
+	}
+	elseif ($class == 'conferences'){
+		$eventclass='conferences';
+	}
+	elseif ($class == 'screenings'){
+		$eventclass='screenings';
+	}
+}//endif	
+*/
+
+/*
 function category_side_calendar() {
 	global $post;
 	if (tribe_is_event($post->ID)){
@@ -756,4 +783,4 @@ function category_side_calendar() {
 	}
 		
 
-add_action('thematic_belowmainasides', 'category_side_calendar', 1);
+add_action('thematic_belowmainasides', 'category_side_calendar', 1);*/

@@ -35,8 +35,8 @@ if ( !defined('ABSPATH') ) { die('-1'); }
 			<?php endif; ?>
 			<?php if ( tribe_is_day() && $first ) : $first = false; ?>
 				<h4 class="event-day"><?php echo tribe_event_format_date(strtotime(get_query_var('evenliate')), false); ?></h4>
-			<?php endif; ?>
-			<?php the_title('<h2 class="entry-title' . tribe_meta_event_cats() . '" itemprop="name"><a href="' . tribe_get_event_link() . '" title="' . the_title_attribute('echo=0') . '" rel="bookmark">', '</a></h2>'); ?>
+			<?php endif;?>
+			<?php the_title('<h2 class="entry-title" itemprop="name"><a href="' . tribe_get_event_link() . '" title="' . the_title_attribute('echo=0') . '" rel="bookmark">', '</a></h2>'); ?>
 			<div class="entry-content tribe-events-event-entry" itemprop="description">
 				<?php if ( function_exists('has_post_thumbnail') && has_post_thumbnail() ) {?>
      		        <?php the_post_thumbnail(); ?>
@@ -89,6 +89,10 @@ if ( !defined('ABSPATH') ) { die('-1'); }
 						<td class="tribe-events-event-meta-value" itemprop="price"><?php echo $cost; ?></td>
 					</tr>
 					<?php endif; ?>
+					<tr>
+						<td class="tribe-events-event-meta-desc">Category:</td>
+						<td class="tribe-events-event-meta-value"> <?php tribe_meta_event_cats(' ', ', ');?></td>
+					</tr>
 				</table>
 			</div>
 		</div> <!-- End post -->
