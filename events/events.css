@@ -1,7 +1,7 @@
 /* Use Helvetica */
-#tribe-events-calendar-header, .tribe-events-calendar, #tribe-events-content .ical, .events-single #content .ical, a.gmap, .tribe-events-event-list-meta td, .tribe-events-nav, #tribe-events-event-meta, span.back, .eventsListWidget .dig-in, .eventsAdvancedListWidget .dig-in, .gcal-add {
+/*#tribe-events-calendar-header, .tribe-events-calendar, #tribe-events-content .ical, .events-single #content .ical, a.gmap, .tribe-events-event-list-meta td, .tribe-events-nav, #tribe-events-event-meta, span.back, .eventsListWidget .dig-in, .eventsAdvancedListWidget .dig-in, .gcal-add {
 	font-family:"Helvetica Neue",Arial,Helvetica,"Nimbus Sans L",sans-serif;
-}
+}*/
 
 #tribe-events-content {
 	position:relative;
@@ -117,8 +117,6 @@ a.ical, a.gcal-add {
 	margin:21px 0 24px 10px;
 	padding: 0 9px;
 	text-align:center;
-	text-transform:uppercase;
-	letter-spacing:1px;
 	width:auto;
 	-moz-border-radius:0px;
 	-webkit-border-radius:0px;
@@ -390,6 +388,14 @@ h4.tribe-events-event-day {
 	margin:12px 0 -3px;
 	clear:both;
 }
+
+h4.event-day {
+	font-weight:bold;
+	font-size:14px;
+	clear:both;
+	margin-bottom:0px;
+}
+
 h4.tribe-events-event-day + .post .entry-title {margin-top:6px;}
 #eventbrite-embed {
 	width:100%;

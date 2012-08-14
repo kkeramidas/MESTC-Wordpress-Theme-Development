@@ -565,7 +565,6 @@ function events_page_side_calendar () {
 	    );
 ?>
 	<div id="events-at-a-glance">
-	<h1 class="events-sidecal-header">SEASON AT A GLANCE</h1>
 	<?php if (!empty($get_posts)){ ?>
 	<h2 class="events-sidecal-subheader">Upcoming Events:</h2>
 	<dl class="events-sidecal-event">

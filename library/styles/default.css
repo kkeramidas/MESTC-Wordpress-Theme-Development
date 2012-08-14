@@ -213,7 +213,7 @@ h1.page-title {
     line-height:26px;
     margin-top:5px;
     font-weight:bold;    
-    color:#CDD42A;
+    color:#6CB2D4;
 }
 
 body.archive .post h2{
@@ -250,10 +250,10 @@ body.archive .post h2{
     font-weight:bold;
     line-height:26px;
     padding:5px 0 7px 0;
-    color: #CDD42A;
+    color: #458BBF;
 }
 .entry-title a {
-    color: #CDD42A;
+    color: #458BBF;
 }
 .entry-title a:active,
 .entry-title a:hover {
@@ -761,10 +761,10 @@ li.content-column {
 }
 
 #primary h1, #secondary h1, .aside h3 {
-    font-size: 12px;
+    font-size: 13px;
     font-weight:bold;
-    line-height: 12px;
-    color: #6CB2D4;
+    line-height: 14px;
+    color: #458BBF;
     margin: 0px 0 5px 0;
 }
 
@@ -837,8 +837,7 @@ li.content-column {
     margin-left: 0px;
 }
 
-/*
-    Content Asides
+/* =Content Asides
 -------------------------------------------------------------- */
 
 #content .aside {
@@ -923,6 +922,10 @@ li.content-column {
     margin:0;
 }
 
+dd.category-meta{
+	margin-bottom:0px;
+}
+
 /* Mailing List CSS
 -------------------------------------------------------------- */
 #mailinglist-table {
@@ -974,7 +977,7 @@ li.content-column {
 }
 
 #bookrotation a, #journalrotation a {
-	color: #CDD42A;
+	color: #458BBF;
 	font-size: 16px;
 	font-weight: bold;
 	padding-bottom:10px;
@@ -1111,32 +1114,30 @@ body.slug-events #secondary{
 
 h1.events-sidecal-header,
 h2.events-sidecal-subheader,
-h2.events-sidecal-subheader2{
-	color:#458BBF;
-}
-
-h1.events-sidecal-header,
-h2.events-sidecal-subheader,
 h2.events-sidecal-subheader2,
 h2.events-sidecal-month{
 	clear:none;
 	width:150px;
 	font-weight:bold;
+}
+
+h2.events-sidecal-month{
 	font-size:11px;
-	padding: 20px 0 0px;
 }
 
-h1.events-sidecal-header{
-	font-size:12px;
-	padding: 20px 0 0px;
-}
-
-h2.events-sidecal-subheader{
-	padding: 10px 0 3px;
-}
-
+h2.events-sidecal-subheader,
 h2.events-sidecal-subheader2{
-	padding: 15px 0 3px;
+	font-size:13px;
+	color:#458BBF;
+}
+
+#secondary h1.seasonal-sidecal-header{
+	margin-bottom:7px;
+}
+
+h2.events-sidecal-subheader,
+h2.events-sidecal-subheader2{
+	padding: 20px 0 7px;
 }
 
 h2.events-sidecal-month{
@@ -1190,31 +1191,42 @@ dl.events-sidecal, dl.events-sidecal-event{
 #events-at-a-glance div.international-theatre,
 #events-at-a-glance div.publication-theatre,
 #events-at-a-glance div.conferences,
-#events-at-a-glance div.screenings{
+#events-at-a-glance div.screenings,
+li.Widget_Include_Post div.us-theatre,
+li.Widget_Include_Post div.international-theatre,
+li.Widget_Include_Post div.publication-theatre,
+li.Widget_Include_Post div.conferences,
+li.Widget_Include_Post div.screenings{
     border-width: 0px;
     border-left-width: 4px;
     border-style: solid; 
 	padding-left: 3px;
     padding-top: 2px;
+	margin-bottom:4px;
 }
 
-#events-at-a-glance div.us-theatre{
+#events-at-a-glance div.us-theatre,
+li.Widget_Include_Post div.us-theatre{
     border-color: #CDD42A;
 }
 
-#events-at-a-glance div.international-theatre{
+#events-at-a-glance div.international-theatre,
+li.Widget_Include_Post div.international-theatre{
     border-color: #CB5795;
 }
 
-#events-at-a-glance div.publication-theatre{
+#events-at-a-glance div.publication-theatre,
+li.Widget_Include_Post div.publication-theatre{
     border-color: #DA8712;
 }
 
-#events-at-a-glance div.conferences{
+#events-at-a-glance div.conferences,
+li.Widget_Include_Post div.conferences{
     border-color: #458BBF;
 }
 
-#events-at-a-glance div.screenings{
+#events-at-a-glance div.screenings,
+li.Widget_Include_Post div.screenings{
     border-color: #22487F;
 }
 
@@ -1324,7 +1336,7 @@ body.slug-index #index-top .event a{
 	font-size:20px;
 	font-weight:bold;
 	line-height:20px;
-	color: #CDD42A;
+	color: #E4EBF2;
 }
 
 body.slug-index #index-top .event a:hover{
