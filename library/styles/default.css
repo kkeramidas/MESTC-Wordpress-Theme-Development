@@ -1127,17 +1127,13 @@ h2.events-sidecal-month{
 
 h2.events-sidecal-subheader,
 h2.events-sidecal-subheader2{
-	font-size:13px;
+	font-size:12px;
 	color:#458BBF;
+	padding: 20px 0 7px;
 }
 
 #secondary h1.seasonal-sidecal-header{
 	margin-bottom:7px;
-}
-
-h2.events-sidecal-subheader,
-h2.events-sidecal-subheader2{
-	padding: 20px 0 7px;
 }
 
 h2.events-sidecal-month{

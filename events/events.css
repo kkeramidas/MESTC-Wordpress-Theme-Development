@@ -122,6 +122,7 @@ a.ical, a.gcal-add {
 	-webkit-border-radius:0px;
 	border-radius:0px;
 }
+
 .tribe-events-calendar-buttons a.tribe-events-button-on {
 	background:#666;
 }
@@ -391,9 +392,9 @@ h4.tribe-events-event-day {
 
 h4.event-day {
 	font-weight:bold;
-	font-size:14px;
+	font-size:12px;
 	clear:both;
-	margin-bottom:0px;
+	margin: 10px 0 0px;
 }
 
 h4.tribe-events-event-day + .post .entry-title {margin-top:6px;}
@@ -668,13 +669,13 @@ table.tribe-events-calendar .cat_screenings a:active,
 }
 
 #tribe-events-event-meta dd.event-meta {
-    padding:1px 0 0 0;
+    padding:0;
     margin-left: 35px;
     margin-bottom: 10px;
 }
 
 #tribe-events-event-meta dl.venue-cost-column dd.event-meta {
-    padding:1px 0 0 0;
+    padding:0;
     margin-left: 43px;
     margin-bottom: 10px;
 }
@@ -684,7 +685,7 @@ table.tribe-events-calendar .cat_screenings a:active,
 } 
 
 #tribe-events-event-meta dd.category-meta {
-    padding:1px 0 0 0;
+    padding:0;
     margin-left:62px;
     margin-bottom: 10px;
 }

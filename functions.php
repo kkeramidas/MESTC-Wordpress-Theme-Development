@@ -79,7 +79,21 @@ add_action( 'init', 'register_my_menus' );
 
 //Conditional Assignment of Secondary Menu Based on Category
 function secondary_header_menu() {
-	if (tribe_is_event() || in_category('events')) {
+	if (tribe_is_event()) {
+         wp_nav_menu( array( 'theme_location' => 'events-menu',
+				'container_id'=>'secondary-header-menu',
+				'container_class' => 'clearfix ',
+                'menu_class' => 'sf-menu', // we assign the sf-menu class to the menu ul so that superfish works on this menu too       
+				) );
+	}			
+	elseif (is_single() OR is_archive()) {
+		  wp_nav_menu( array( 'theme_location' => 'home-menu',
+				'container_id'=>'secondary-header-menu',
+				'container_class' => 'clearfix ',
+              'menu_class' => 'sf-menu', // we assign the sf-menu class to the menu ul so that superfish works on this menu too
+              ) );
+	}
+	elseif (in_category('events')) {
          wp_nav_menu( array( 'theme_location' => 'events-menu',
 				'container_id'=>'secondary-header-menu',
 				'container_class' => 'clearfix ',
@@ -114,7 +128,13 @@ function childtheme_override_access(){
 	<div id="access"> <?php
     } 	
     else { 
-        if (tribe_is_event() || in_category('events')) {
+		if (tribe_is_event()) {
+            $headerimage = 'MESTCEventHeader.png';
+        }
+        elseif (is_single() OR is_archive()) {
+            $headerimage = 'MESTCHomeHeader.png';
+		}
+		elseif (in_category('events')) {
             $headerimage = 'MESTCEventHeader.png';
         }
         elseif (in_category('books-journals' )) {
@@ -701,85 +721,3 @@ function events_page_side_calendar () {
 }
 
 add_action('thematic_belowmainasides', 'events_page_side_calendar', 1);
-
-/*	
-$postClass = get_post_class($eventpost->ID);
-
-foreach($postClass as $class){
-	echo $class;
-	if ($class == 'us-theatre'){
-		$eventclass='us-theatre';
-	}
-	elseif ($class == 'international-theatre'){
-		$eventclass='international-theatre';
-	}
-	elseif ($class == 'publication-theatre'){
-		$eventclass='publication-theatre';
-	}
-	elseif ($class == 'conferences'){
-		$eventclass='conferences';
-	}
-	elseif ($class == 'screenings'){
-		$eventclass='screenings';
-	}
-}//endif	
-*/
-
-/*
-function category_side_calendar() {
-	global $post;
-	if (tribe_is_event($post->ID)){
-		   	if (in_category('cat_us-theatre')) {
-				$categorycal = 'us-theatre';
-				$categorynicecal = 'US Theatre';
-			}
-			elseif (in_category('cat_international-theatre'))  {
-				$categorycal = 'international-theatre';
-				$categorynicecal = 'International Theatre';
-			}
-			elseif (in_category('cat_publication-theatre'))  {
-				$categorycal = 'publication-theatre';
-				$categorynicecal = 'Publications';
-			}
-			elseif (in_category('cat_conferences')) {
-				$categorycal = 'conferences';
-				$categorynicecal = 'Conferences';
-			}
-			elseif (in_category('cat_screenings')) {
-				$categorycal = 'screenings';
-				$categorynicecal = 'Screenings';
-			}//endif
-			
-		$get_eventposts = tribe_get_events(
-				array(
-					'eventDisplay'=>'all',
-		            'tax_query'=> array(
-		                array(
-							'taxonomy' => 'tribe_events_cat',
-							'field' => 'slug',
-							'terms' => $categorycal			
-		            			)
-		    		)
-		)    
-		);
-			
-	    $key = 'short-title'; ?>
-			<div id="category-side-cal">
-			<h1 class="events-sidecal-header"><?php echo $categorynicecal ?> Calendar</h1>
-			<dl class="events-sidecal"><?php
-
-			foreach($get_eventposts as $eventpost) { 
-					?>
-			        <dt class="event-short-date"><?php echo tribe_get_start_date( $eventpost->ID, false, 'M j' );?></dt>
-			        <dd class="event-short-title"><a href="<?php echo get_permalink($eventpost->ID); ?>" id="post-<?php echo the_ID(); ?>"><?php echo get_post_meta($eventpost->ID, $key, true); ?></a></dd>
-		<?php
-		} //endforeach ?>
-
-		    </dl>
-		    </div>
-		<?php wp_reset_query();
-		}
-	}
-		
-
-add_action('thematic_belowmainasides', 'category_side_calendar', 1);*/
