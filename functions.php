@@ -48,7 +48,7 @@ function childtheme_override_blogtitle(){
 		if (is_page('index')){
 		?>
 	  	<div id="MESTC-image"><span><a href="<?php echo home_url() ?>/" title="Martin E. Segal Theatre Center" rel="home"><img
-src="<?php echo $MESTCimagedir ?>MESTCBIG.png" height="175px" width="225px"></a></span></div><?php		
+src="<?php echo $MESTCimagedir ?>MESTCBig.png" height="175px" width="225px"></a></span></div><?php		
 		}
 		else {
 	    ?>
@@ -69,7 +69,7 @@ function register_my_menus() {
 			'primary-menu' => __( 'Primary Menu' ),
 			'home-menu' => __( 'Home Menu' ),
 			'events-menu' => __( 'Events Menu' ),
-	        'books-journals-menu' => __( 'Books & Journals Menu' ),
+	        'publications-menu' => __( 'Publications Menu' ),
 		)
 	);
 }
@@ -100,8 +100,8 @@ function secondary_header_menu() {
                 'menu_class' => 'sf-menu', // we assign the sf-menu class to the menu ul so that superfish works on this menu too       
 				) );
 	}
-	elseif (in_category('books-journals' )) {
-         wp_nav_menu( array( 'theme_location' => 'books-journals-menu',
+	elseif (in_category('publications' )) {
+         wp_nav_menu( array( 'theme_location' => 'publications-menu',
 				'container_id'=>'secondary-header-menu',
 				'container_class' => 'clearfix ',
                 'menu_class' => 'sf-menu', // we assign the sf-menu class to the menu ul so that superfish works on this menu too
@@ -137,8 +137,8 @@ function childtheme_override_access(){
 		elseif (in_category('events')) {
             $headerimage = 'MESTCEventHeader.png';
         }
-        elseif (in_category('books-journals' )) {
-            $headerimage = 'MESTCBJHeader.png';
+        elseif (in_category('publications' )) {
+            $headerimage = 'MESTCPubHeader.png';
         }
         else {
             $headerimage = 'MESTCHomeHeader.png';
@@ -523,8 +523,8 @@ function childtheme_override_body_class( $print = true ) {
 function add_calendar_buttons() {
 	if (is_page('events')){
 		?><div id="tribe-events-calendar-header" class="clearfix">
-			<span class="tribe-events-calendar-buttons"><a class="tribe-events-button-off" href="http://php.dev/MESTCDev/events-list/upcoming/">Event List</a>
-			<a class="tribe-events-button-off" href="http://php.dev/MESTCDev/events-list/month/">Calendar</a>
+			<span class="tribe-events-calendar-buttons"><a class="tribe-events-button-off" href="<?php echo get_site_url(); ?>/events-list/upcoming/">Event List</a>
+			<a class="tribe-events-button-off" href="<?php echo get_site_url(); ?>/events-list/month/">Calendar</a>
 			</span>
 		</div><?php
 	}
@@ -574,6 +574,7 @@ function events_page_side_calendar () {
 		$get_posts = tribe_get_events(
 	        array(
 	            'eventDisplay'=>'upcoming',
+				'posts_per_page'=>-1,
 	            'tax_query'=> array(
 	                array(
 	                    'taxonomy' => 'tribe_events_cat',
@@ -644,6 +645,7 @@ function events_page_side_calendar () {
 		$get_oldposts = tribe_get_events(
 	        array(
 	            'eventDisplay'=>'past',
+				'posts_per_page'=>-1,
 	            'tax_query'=> array(
 	                array(
 	                    'taxonomy' => 'tribe_events_cat',

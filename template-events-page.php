@@ -57,9 +57,9 @@
 							
 							?><div class="event-block">
 
-                            <div class="event-image-left"><a href="http://php.dev/MESTCDev/events-list/category/us-theatre/"><img src="<?php echo get_stylesheet_directory_uri(); ?>/library/images/EVENTS_us-theatre.jpg" align="alignleft" width="175" height="115" title="US Theatre"/></a><br/><strong>The Group Theatre</strong></div>
+                            <div class="event-image-left"><a href="<?php echo get_site_url(); ?>/events-list/category/us-theatre/"><img src="<?php echo get_stylesheet_directory_uri(); ?>/library/images/EVENTS_us-theatre.jpg" align="alignleft" width="175" height="115" title="US Theatre"/></a><br/><strong>The Group Theatre</strong></div>
                             
-                            <div class="event-text"><a class="us-theatre" href="http://php.dev/MESTCDev/events-list/category/us-theatre/">US Theatre</a></div>
+                            <div class="event-text"><a class="us-theatre" href="<?php echo get_site_url(); ?>/events-list/category/us-theatre/">US Theatre</a></div>
                             Theatre in the United States is as various as the country's people. Recognizing that diversity wears many faces, MESTC organizes readings, performances, and panels that address the question of how artists make theatre in this country.                            
                             
                             <?php return_upcoming_category_event('us-theatre');?>
@@ -68,9 +68,9 @@
                             
                             <div class="event-block">
                             
-                            <div class="event-image-left"><a href="http://php.dev/MESTCDev/events-list/category/international-theatre/"><img src="<?php echo get_stylesheet_directory_uri(); ?>/library/images/EVENTS_international-theatre.jpg" align="alignleft" width="175" height="115" title="International Theatre"/></a><br/><strong>Kathakali Today</strong><br />Photo court. Boris Daussà-Pastor</div>
+                            <div class="event-image-left"><a href="<?php echo get_site_url(); ?>/events-list/category/international-theatre/"><img src="<?php echo get_stylesheet_directory_uri(); ?>/library/images/EVENTS_international-theatre.jpg" align="alignleft" width="175" height="115" title="International Theatre"/></a><br/><strong>Kathakali Today</strong><br />Photo court. Boris Daussà-Pastor</div>
                             
-                            <div class="event-text"><a class="international-theatre" href="http://php.dev/MESTCDev/events-list/category/international-theatre/">International Theatre</a></div>
+                            <div class="event-text"><a class="international-theatre" href="<?php echo get_site_url(); ?>/events-list/category/international-theatre/">International Theatre</a></div>
                             Providing opportunities for people to learn and communicate about varieties of art and culture, the Center's world theatre programs bring contemporary theatre to the fore, while acknowledging the traditions of the past.
 
                             <?php return_upcoming_category_event('international-theatre');?>
@@ -79,9 +79,9 @@
                             
                             <div class="event-block">
                             
-                            <div class="event-image-left"><a href="http://php.dev/MESTCDev/events-list/category/publication-theatre/"><img src="<?php echo get_stylesheet_directory_uri(); ?>/library/images/EVENTS_publication-theatre.jpg" align="alignleft" width="175" height="115" title="Publications for Theatre"/></a><br/><strong><em>Beyond Bollywood &amp; Broadway</em></strong></div>
+                            <div class="event-image-left"><a href="<?php echo get_site_url(); ?>/events-list/category/publication-theatre/"><img src="<?php echo get_stylesheet_directory_uri(); ?>/library/images/EVENTS_publication-theatre.jpg" align="alignleft" width="175" height="115" title="Publications for Theatre"/></a><br/><strong><em>Beyond Bollywood &amp; Broadway</em></strong></div>
                             
-                            <div class="event-text"><a class="publication-theatre" href="http://php.dev/MESTCDev/events-list/category/publication-theatre/">Publication for the Theatre</a></div>
+                            <div class="event-text"><a class="publication-theatre" href="<?php echo get_site_url(); ?>/events-list/category/publication-theatre/">Publication for the Theatre</a></div>
                             As a publisher, the Center supports and celebrates publishing for the theatre, presenting new anthologies and hosting book launches as part of its ongoing commitment to theatre and text.
                             
                             <?php return_upcoming_category_event('publication-theatre');?>
@@ -90,9 +90,9 @@
                             
                             <div class="event-block">
                             
-                            <div class="event-image-left"><a href="http://php.dev/MESTCDev/events-list/category/conferences/"><img src="<?php echo get_stylesheet_directory_uri(); ?>/library/images/EVENTS_conferences.jpg" align="alignleft" width="175" height="115" title="Conferences"/></a><br/><strong>Temporary Distortion</strong><br />Photo by Temporary Distortion</div>
+                            <div class="event-image-left"><a href="<?php echo get_site_url(); ?>/events-list/category/conferences/"><img src="<?php echo get_stylesheet_directory_uri(); ?>/library/images/EVENTS_conferences.jpg" align="alignleft" width="175" height="115" title="Conferences"/></a><br/><strong>Temporary Distortion</strong><br />Photo by Temporary Distortion</div>
                             
-                            <div class="event-text"><a class="conferences" href="http://php.dev/MESTCDev/events-list/category/conferences/">Conferences</a></div>
+                            <div class="event-text"><a class="conferences" href="<?php echo get_site_url(); ?>/events-list/category/conferences/">Conferences</a></div>
                             Need New Text
                             
                             <?php return_upcoming_category_event('conferences');?>
@@ -101,9 +101,9 @@
                             
                             <div class="event-block">
                             
-                            <div class="event-image-left"><a href="http://php.dev/MESTCDev/events-list/category/screenings/"><img src="<?php echo get_stylesheet_directory_uri(); ?>/library/images/EVENTS_screenings.jpg" align="alignleft" width="175" height="115" title="Screenings"/></a><br/><strong>MADE HERE</strong></div>
+                            <div class="event-image-left"><a href="<?php echo get_site_url(); ?>/events-list/category/screenings/"><img src="<?php echo get_stylesheet_directory_uri(); ?>/library/images/EVENTS_screenings.jpg" align="alignleft" width="175" height="115" title="Screenings"/></a><br/><strong>MADE HERE</strong></div>
                             
-                            <div class="event-text"><a class="screenings" href="http://php.dev/MESTCDev/events-list/category/screenings/">Screenings</a></div>
+                            <div class="event-text"><a class="screenings" href="<?php echo get_site_url(); ?>/events-list/category/screenings/">Screenings</a></div>
                             Need New Text
                          
                             <?php return_upcoming_category_event('screenings');?>

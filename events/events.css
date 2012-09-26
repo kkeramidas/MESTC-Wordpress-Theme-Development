@@ -559,7 +559,7 @@ body.tribe_events_cat-us h2.tribe-events-cal-title,
 #tribe-events-loop .cat_us-theatre .entry-title a,
 table.tribe-events-calendar .cat_us-theatre a,
 #page-top.aside li.cat_us-theatre .event a,
-body.pageid-21 a.us-theatre{
+body.slug-events a.us-theatre{
     color: #CDD42A;
 }
 
@@ -568,7 +568,7 @@ body.tribe_events_cat-international h2.tribe-events-cal-title,
 #tribe-events-loop .cat_international-theatre .entry-title a,
 table.tribe-events-calendar .cat_international-theatre a,
 #page-top.aside li.cat_international-theatre .event a,
-body.pageid-21 a.international-theatre{
+body.slug-events a.international-theatre{
     color: #CB5795;
 }
 
@@ -577,7 +577,7 @@ body.tribe_events_cat-publication h2.tribe-events-cal-title,
 #tribe-events-loop .cat_publication-theatre .entry-title a,
 table.tribe-events-calendar .cat_publication-theatre a,
 #page-top.aside li.cat_publication-theatre .event a,
-body.pageid-21 a.publication-theatre{
+body.slug-events a.publication-theatre{
     color: #DA8712;
 }
 
@@ -586,7 +586,7 @@ body.tribe_events_cat-conferences h2.tribe-events-cal-title,
 #tribe-events-loop .cat_conferences .entry-title a,
 table.tribe-events-calendar .cat_conferences a,
 #page-top.aside li.cat_conferences .event a,
-body.pageid-21 a.conferences{
+body.slug-events a.conferences{
     color: #458BBF;
 }
 
@@ -595,7 +595,7 @@ body.tribe_events_cat-screenings h2.tribe-events-cal-title,
 #tribe-events-loop .cat_screenings .entry-title a,
 table.tribe-events-calendar .cat_screenings a,
 #page-top.aside li.cat_screenings .event a,
-body.pageid-21 a.screenings{
+body.slug-events a.screenings{
     color: #22487F;
 }
 
@@ -669,13 +669,13 @@ table.tribe-events-calendar .cat_screenings a:active,
 }
 
 #tribe-events-event-meta dd.event-meta {
-    padding:0;
+    padding:1px 0 0 0;
     margin-left: 35px;
     margin-bottom: 10px;
 }
 
 #tribe-events-event-meta dl.venue-cost-column dd.event-meta {
-    padding:0;
+    padding:1px 0 0 0;
     margin-left: 43px;
     margin-bottom: 10px;
 }
@@ -685,7 +685,7 @@ table.tribe-events-calendar .cat_screenings a:active,
 } 
 
 #tribe-events-event-meta dd.category-meta {
-    padding:0;
+    padding:1px 0 0 0;
     margin-left:62px;
     margin-bottom: 10px;
 }

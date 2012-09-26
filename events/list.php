@@ -47,11 +47,11 @@ if ( !defined('ABSPATH') ) { die('-1'); }
 					<?php if (tribe_is_multiday() || !tribe_get_all_day()): ?>
 					<tr>
 						<td class="tribe-events-event-meta-desc"><?php _e('Start:', 'tribe-events-calendar') ?></td>
-						<td class="tribe-events-event-meta-value" itemprop="startDate" content="<?php echo tribe_get_start_date(); ?>"><?php echo tribe_get_start_date(); ?></td>
+						<td class="tribe-events-event-meta-value" itemprop="startDate" content="<?php echo tribe_get_start_date(); ?>"><?php echo tribe_get_start_date(NULL,true,'M j, Y'); ?></td>
 					</tr>
 					<tr>
 						<td class="tribe-events-event-meta-desc"><?php _e('End:', 'tribe-events-calendar') ?></td>
-						<td class="tribe-events-event-meta-value" itemprop="endDate" content="<?php echo tribe_get_end_date(); ?>"><?php echo tribe_get_end_date(); ?></td>
+						<td class="tribe-events-event-meta-value" itemprop="endDate" content="<?php echo tribe_get_end_date(); ?>"><?php echo tribe_get_end_date(NULL,true,'M j, Y'); ?></td>
 					</tr>
 					<?php else: ?>
 					<tr>

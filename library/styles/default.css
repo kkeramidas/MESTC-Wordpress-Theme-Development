@@ -1103,10 +1103,6 @@ dd.what-event{
 	font-weight:bold;
 }
 
-body.slug-events #secondary{
-	display:none;
-}
-
 #events-at-a-glance, #category-side-cal{
 	clear:left;
 	color: #6CB2D4;
@@ -1127,13 +1123,17 @@ h2.events-sidecal-month{
 
 h2.events-sidecal-subheader,
 h2.events-sidecal-subheader2{
-	font-size:12px;
+	font-size:13px;
 	color:#458BBF;
-	padding: 20px 0 7px;
 }
 
 #secondary h1.seasonal-sidecal-header{
 	margin-bottom:7px;
+}
+
+h2.events-sidecal-subheader,
+h2.events-sidecal-subheader2{
+	padding: 20px 0 7px;
 }
 
 h2.events-sidecal-month{

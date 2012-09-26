@@ -19,9 +19,9 @@ if ( !defined('ABSPATH') ) { die('-1'); }
 	<dl class="column date-column">
 		<?php if (tribe_get_start_date() !== tribe_get_end_date() ) { ?>
 			<dt class="event-label event-label-start"><?php _e('Start:', 'tribe-events-calendar') ?></dt> 
-			<dd class="event-meta event-meta-start"><meta itemprop="startDate" content="<?php echo tribe_get_start_date( null, false, 'Y-m-d-h:i:s' ); ?>"/><?php echo tribe_get_start_date(); ?></dd>
+			<dd class="event-meta event-meta-start"><meta itemprop="startDate" content="<?php echo tribe_get_start_date( null, false, 'Y-m-d-h:i:s' ); ?>"/><?php echo tribe_get_start_date(NULL,true,'M j, Y'); ?></dd>
 			<dt class="event-label event-label-end"><?php _e('End:', 'tribe-events-calendar') ?></dt>
-			<dd class="event-meta event-meta-end"><meta itemprop="endDate" content="<?php echo tribe_get_end_date( null, false, 'Y-m-d-h:i:s' ); ?>"/><?php echo tribe_get_end_date();  ?></dd>						
+			<dd class="event-meta event-meta-end"><meta itemprop="endDate" content="<?php echo tribe_get_end_date( null, false, 'Y-m-d-h:i:s' ); ?>"/><?php echo tribe_get_end_date(NULL,true,'M j, Y');  ?></dd>						
 		<?php } else { ?>
 			<dt class="event-label event-label-date"><?php _e('Date:', 'tribe-events-calendar') ?></dt> 
 			<dd class="event-meta event-meta-date"><meta itemprop="startDate" content="<?php echo tribe_get_start_date( null, false, 'Y-m-d-h:i:s' ); ?>"/><?php echo tribe_get_start_date(); ?></dd>
